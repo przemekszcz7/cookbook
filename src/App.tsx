@@ -115,6 +115,12 @@ const recipes = [
   }
 ];
 
+const BoneSilhouette = () => (
+  <svg viewBox="0 0 100 100" className="opacity-15 absolute -right-10 -bottom-10 w-64 h-64 pointer-events-none fill-bone-amber">
+    <path d="M78.5,15.5c-4.1-4.1-10.9-4.1-15,0l-12,12l-12-12c-4.1-4.1-10.9-4.1-15,0s-4.1,10.9,0,15l12,12l-12,12c-4.1,4.1-4.1,10.9,0,15s10.9,4.1,15,0l12-12l12,12c4.1,4.1,10.9,4.1,15,0s4.1-10.9,0-15l-12-12l12-12C82.6,26.4,82.6,19.6,78.5,15.5z" />
+  </svg>
+);
+
 export default function App() {
   let globalPageCounter = 1;
 
@@ -122,26 +128,29 @@ export default function App() {
     <div className="bg-neutral-900 py-12 min-h-screen print:p-0 print:bg-transparent overflow-x-hidden">
       {/* PAGE 1: COVER */}
       <Page number={globalPageCounter++}>
-        <div className="flex-1 flex flex-col justify-center items-center text-center p-10 border-[1px] border-fat-gold/10 m-4">
-          <DecorativeLine />
-          <h1 className="font-serif font-black text-6xl text-parchment tracking-[0.15em] leading-tight mb-4 uppercase">
-            Carnivore<br/>Cookbook
-          </h1>
-          <DecorativeLine />
-          <p className="font-body italic text-bone-amber text-xl max-w-sm mt-8 leading-relaxed">
-            20 Creative, High-Satisfaction Recipes for Sticking to the Diet
-          </p>
-          <div className="mt-auto">
+        <div className="flex-1 flex flex-col justify-center items-center text-center p-10 border-[1px] border-fat-gold/30 m-4 relative">
+          <div className="z-10">
+            <DecorativeLine />
+            <h1 className="font-serif font-black text-6xl text-parchment tracking-[0.15em] leading-tight mb-4 uppercase">
+              Carnivore<br/>Cookbook
+            </h1>
+            <DecorativeLine />
+            <p className="font-body italic text-bone-amber text-xl max-w-sm mt-8 leading-relaxed">
+              20 Creative, High-Satisfaction Recipes for Sticking to the Diet
+            </p>
+          </div>
+          <div className="mt-auto z-10">
             <CrossedCutlery />
           </div>
+          <BoneSilhouette />
         </div>
       </Page>
 
       {/* PAGE 2: INTRO & PRINCIPLES */}
       <Page number={globalPageCounter++}>
         <div className="p-4">
-          <h2 className="font-serif font-bold text-4xl text-fat-gold mb-10 border-b border-bone-amber/20 pb-4 tracking-tight">Introduction</h2>
-          <div className="font-body text-parchment space-y-6 text-lg leading-loose italic max-w-prose">
+          <h2 className="font-serif font-bold text-5xl text-fat-gold mb-12 border-b border-bone-amber/20 pb-4 tracking-tight">Introduction</h2>
+          <div className="font-body text-parchment space-y-8 text-xl leading-loose italic max-w-prose">
             <p>The carnivore diet is often described as simple.</p>
             <p>But simplicity can become repetitive fast.</p>
             <p>And repetition is usually where most people fall off.</p>
@@ -149,9 +158,9 @@ export default function App() {
             <p>Same ingredients. New experience.<br/>That is the goal.</p>
           </div>
 
-          <div className="mt-20">
-            <h2 className="font-serif font-bold text-3xl text-fat-gold mb-8 italic">Core Principles</h2>
-            <div className="grid grid-cols-1 gap-6">
+          <div className="mt-24">
+            <h2 className="font-serif font-bold text-3xl text-fat-gold mb-10 italic">Core Principles</h2>
+            <div className="grid grid-cols-1 gap-8">
               {[
                 "Variety helps adherence, not perfection",
                 "Texture and cooking method matter as much as ingredients",
@@ -159,10 +168,10 @@ export default function App() {
                 "Simple ingredients can still feel different with small changes"
               ].map((text, i) => (
                 <div key={i} className="flex items-center group">
-                  <div className="w-10 h-10 rounded-full bg-bone-amber text-bg flex items-center justify-center font-mono font-bold mr-4 shrink-0 shadow-lg">
+                  <div className="w-12 h-12 rounded-full bg-bone-amber text-bg flex items-center justify-center font-mono font-bold text-xl mr-6 shrink-0 shadow-xl">
                     {i + 1}
                   </div>
-                  <p className="font-body text-parchment text-lg">{text}</p>
+                  <p className="font-body text-parchment text-xl">{text}</p>
                 </div>
               ))}
             </div>
@@ -173,23 +182,23 @@ export default function App() {
       {/* PAGE 3: TOC */}
       <Page number={globalPageCounter++}>
         <div className="p-4">
-          <h2 className="font-serif font-bold text-4xl text-bone-amber mb-12 border-b border-bone-amber/20 pb-4">Table of Contents</h2>
-          <div className="space-y-6">
+          <h2 className="font-serif font-bold text-5xl text-bone-amber mb-16 border-b border-bone-amber/20 pb-4">Table of Contents</h2>
+          <div className="space-y-8">
             {[
               { label: "Introduction", page: 2 },
               { label: "Core Principles", page: 2 },
               { label: "Breakfast Recipes (1–5)", page: 4 },
-              { label: "Comfort & Budget Meals (6–10)", page: 7 },
-              { label: "Creative High-Fat Meals (11–15)", page: 10 },
-              { label: "Fast & Fun Meals (16–20)", page: 13 },
-              { label: "Meal Structuring Guide", page: 16 },
-              { label: "Grocery List", page: 17 },
-              { label: "Final Thoughts", page: 18 }
+              { label: "Comfort & Budget Meals (6–10)", page: 8 },
+              { label: "Creative High-Fat Meals (11–15)", page: 12 },
+              { label: "Fast & Fun Meals (16–20)", page: 16 },
+              { label: "Meal Structuring Guide", page: 20 },
+              { label: "Grocery List", page: 21 },
+              { label: "Final Thoughts", page: 22 }
             ].map((entry, idx) => (
               <div key={idx} className="flex items-baseline justify-between group cursor-default">
                 <span className="font-serif text-2xl text-parchment group-hover:text-fat-gold transition-colors">{entry.label}</span>
                 <div className="flex-1 border-b border-smoke-grey/30 border-dotted mx-4 mb-2"></div>
-                <span className="font-mono text-smoke-grey text-lg italic">{entry.page}</span>
+                <span className="font-mono text-smoke-grey text-xl italic">{entry.page}</span>
               </div>
             ))}
           </div>
@@ -205,21 +214,17 @@ export default function App() {
         result.push(
           <Page key={`opener-${chapterIdx}`} number={globalPageCounter++}>
             <div className="flex-1 flex flex-col justify-center items-center text-center relative overflow-hidden bg-bg">
-              <span className="absolute font-serif text-[18rem] text-meat-red/10 leading-none select-none pointer-events-none transform -translate-y-8">
+              <span className="absolute font-serif text-[22rem] text-meat-red/10 leading-none select-none pointer-events-none transform -translate-y-12">
                 {chapterNumber}
               </span>
               <div className="relative z-10 flex flex-col items-center">
                 <FlameIcon />
-                <h2 className="font-serif font-bold text-5xl text-parchment uppercase tracking-widest mt-4 max-w-md leading-tight">
+                <h2 className="font-serif font-bold text-6xl text-parchment uppercase tracking-[0.2em] mt-6 max-w-md leading-tight">
                   {chapter.chapter}
                 </h2>
-                <div className="w-16 h-1 bg-meat-red mt-6"></div>
+                <div className="w-24 h-1 bg-meat-red mt-10"></div>
               </div>
-              <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-                <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <path d="M0 100 L50 20 L100 100 Z" fill="var(--color-meat-red)" />
-                </svg>
-              </div>
+              <BoneSilhouette />
             </div>
           </Page>
         );
@@ -229,7 +234,7 @@ export default function App() {
           const items = chapter.items.slice(i, i + 2);
           result.push(
             <Page key={`recipes-${chapterIdx}-${i}`} number={globalPageCounter++}>
-              <div className="flex flex-col h-full py-4">
+              <div className="flex flex-col h-full py-4 justify-center gap-12">
                 {items.map((recipe) => (
                   <RecipeCard 
                     key={recipe.id}
