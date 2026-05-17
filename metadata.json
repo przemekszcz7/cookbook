@@ -1,6 +1,6 @@
 {
-  "name": "Carnivore Cookbook PDF Generator",
-  "description": "A premium, print-optimized digital cookbook featuring 20 creative carnivore recipes with a dark editorial aesthetic.",
+  "name": "Carnivore Cookbook",
+  "description": "A premium, print-optimized cookbook featuring 20 creative carnivore recipes with a dark editorial aesthetic.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
